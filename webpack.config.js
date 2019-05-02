@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 module.exports = {
-    entry: './src/index.js',
+    entry: './index.js',
     output: {
       path: __dirname + '/dist',
       publicPath: '/',
@@ -12,7 +12,12 @@ module.exports = {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: ['babel-loader']
-          }
+          },
+          {
+            test: /\.css$/,
+            exclude: /node_modules/,
+            use: ['style-loader', 'css-loader'],
+          },
         ]
     },
     resolve: {
